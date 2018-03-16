@@ -8,6 +8,8 @@ class App{
     public static function run($uri){
         self::$obj_router= new Router($uri);
        self::$db= new DB(Config::get('db_host'),Config::get('db_name'),Config::get('db_root'),Config::get('db_password'));
+var_dump(self::$db);
+exit();
         $controller_class=ucfirst(self::$obj_router->getController()).'Controller';
         $controller_method=strtolower(self::$obj_router->getMethodPrefix().self::$obj_router->getAction());
         $layout=self::$obj_router->getRoute();
